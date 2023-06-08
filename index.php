@@ -60,6 +60,37 @@
          <?php var_dump($hotels); ?>
     </pre>
 
+    <div class="container ">
+        <div class="row">
+            <h1>Tabella degli hotel</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <form action="" method="">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        
+                    <label class="form-check-label" for="flexRadioDefault1">
+                         con parcheggio
+                    </label>
+                </form>
+
+                <form action="" method="">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        senza parcheggio
+                    </label>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="container colorPrimary">
         <div class="row">
             <div class="col">
