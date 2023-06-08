@@ -52,13 +52,46 @@
             ],
 
         ];
+
+        $filtroParcheggio = $_GET["conParcheggio"];
+        $filtroPerVoto = $_GET["perVoto"];
+        
+
+        $hotelsFiltrati =[];
+
+        foreach ($hotels as $hotel) {
+            if($hotel["vote"] >= $filtroPerVoto){
+                
+                if( $filtroParcheggio){
+
+                    if( $hotel["parking"]){
+                        $hotelsFiltrati[]= $hotel;
+                    }
+                } else {
+                    $hotelsFiltrati[]= $hotel;
+                }
+                
+            }
+        }
+        $hotels = $hotelsFiltrati;
+
+
+       
+
+
+      
+        
+        var_dump($filtroPerVoto);
+
+        
+
+        
+
+    
        
     ?>
 
 
-    <pre>
-         <?php var_dump($hotels); ?>
-    </pre>
 
     <div class="container ">
         <div class="row">
@@ -70,21 +103,28 @@
         <div class="row">
             <div class="col">
 
-                <form action="" method="">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <form action="./index.php" method="GET">
+                    <input class="form-check-input" type="radio" name="conParcheggio" id="parcheggio">
         
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <label class="form-check-label" for="parcheggio">
                          con parcheggio
                     </label>
+
+                    <select name="perVoto" id="voto">
+                        <option >1</option>
+                        <option >2</option>
+                        <option >3</option>
+                        <option >4</option>
+                        <option >5</option>
+                    </select>
+                    <label class="form-check-label" for="voto">
+                         filtra tramite voto
+                    </label>
+
+                    <button type="submit">Invia</button>
                 </form>
 
-                <form action="" method="">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        senza parcheggio
-                    </label>
-                </form>
+                
 
             </div>
         </div>
@@ -115,7 +155,7 @@
                         <tr>
                             <td><?php echo $hotel["name"] ?></td>
                             <td><?php echo $hotel["description"] ?></td>
-                            <td><?php echo $parcheggio ?></td>
+                            <td><?php echo $parcheggio ?> </td>
                             <td><?php echo $hotel["vote"] ?></td>
                             <td><?php echo $hotel["distance_to_center"] ?>
                         </tr>
